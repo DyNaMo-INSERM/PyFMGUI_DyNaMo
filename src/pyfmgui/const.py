@@ -319,7 +319,7 @@ data_viewer_params = [plot_params]
 
 hertzfit_params = [general_params, AnalysisParams(mode='hertzfit', name='Analysis Params'), HertzFitParams(name='Hertz Fit Params')]
 
-thermaltune_params = [ambient_params, CantileverParams(name='Cantilever Params'), sader_method_params]
+#thermaltune_params = [ambient_params, CantileverParams(name='Cantilever Params'), sader_method_params]
 
 tingfit_params = [general_params, AnalysisParams(mode='tingfit', name='Analysis Params'), TingFitParams(name='Ting Fit Params')]
 
