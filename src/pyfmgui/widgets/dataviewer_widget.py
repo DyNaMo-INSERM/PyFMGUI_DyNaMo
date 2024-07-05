@@ -62,7 +62,7 @@ class DataViewerWidget(QtWidgets.QWidget):
         colorMap = pg.colormap.get('afmhot', source='matplotlib', skipCache=True)     # choose perceptually uniform, diverging color map
         # generate an adjustabled color bar, initially spanning -1 to 1:
         self.bar = pg.ColorBarItem(
-            interactive=False, values=(0,0), width=25, cmap=colorMap) 
+            interactive=False, values=(0,0), width=25)#, cmap=colorMap) 
         # link color bar and color map to correlogram, and show it in plotItem:
         self.bar.setImageItem(self.correlogram, insert_in=self.plotItem)
 
