@@ -11,9 +11,10 @@ The following analysis routines are supported:
 - Viscous drag correction
 - Microrheology (DMA) analysis
 
-If you have any suggestions, comments or experience any issues. Please open an issue on this repository.
-
+If you have any suggestions, comments or experience any issues. Please open an issue on this repository 
 https://github.com/jlopezalo/PyFMGUI/issues
+
+or write to us @ yogesh.saravanan@inserm.fr
 
 ## Run software
 A zip containing the frozen application can be found and downloaded here:
@@ -25,7 +26,7 @@ To run, extract the contents of the .zip and run the main.exe file.
 ## To run from source
 - Clone the repository
 ```
-git clone https://github.com/jlopezalo/PyFMGUI.git
+git clone  https://github.com/DyNaMo-INSERM/PyFMGUI_DyNaMo.git
 cd ./PyFMGUI
 ```
 - Create an environment with python 3.9
@@ -38,6 +39,15 @@ conda activate yourenvname
 ```
 pip install -r requirements.txt
 ```
+- Install the PYFMreader and PyFMRheo from DyNaMo's repositary
+```
+
+pip install -e git+https://github.com/DyNaMo-INSERM/PyFMReader_DyNaMo@master#egg=pyfmreader_dynamo    
+
+pip install -e git+https://github.com/DyNaMo-INSERM/PyFMRheo_DyNaMo@main#egg=pyfmrheo_dynamo
+
+```
+
 - run src/main.py
 ```
 python src/main.py
