@@ -23,7 +23,7 @@ def unpack_hertz_result(row_dict, hertz_result):
     row_dict['hertz_BEC_model'] = hertz_result.bec_model
     row_dict['hertz_fit_hline_on_baseline'] = hertz_result.fit_hline_flag
     row_dict['hertz_delta0'] = hertz_result.delta0
-    row_dict['hertz_E'] = hertz_result.E0
+    row_dict['hertz_E0'] = hertz_result.E0
     row_dict['hertz_f0'] = hertz_result.f0
     row_dict['hertz_slope'] = hertz_result.slope
     row_dict['hertz_poisson_ratio'] = hertz_result.poisson_ratio
