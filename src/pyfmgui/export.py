@@ -23,7 +23,7 @@ def unpack_hertz_result(row_dict, hertz_result):
     row_dict['hertz_BEC_model'] = hertz_result.bec_model
     row_dict['hertz_fit_hline_on_baseline'] = hertz_result.fit_hline_flag
     row_dict['hertz_delta0'] = hertz_result.delta0
-    row_dict['hertz_E0'] = hertz_result.E0
+    row_dict['hertz_E'] = hertz_result.E0
     row_dict['hertz_f0'] = hertz_result.f0
     row_dict['hertz_slope'] = hertz_result.slope
     row_dict['hertz_poisson_ratio'] = hertz_result.poisson_ratio
@@ -44,7 +44,7 @@ def unpack_ting_result(row_dict, ting_result):
     row_dict['ting_BEC_model'] = ting_result.bec_model
     row_dict['ting_fit_hline_on_baseline'] = ting_result.fit_hline_flag
     row_dict['ting_t0'] = ting_result.t0
-    row_dict['ting_E0'] = ting_result.E0
+    row_dict['ting_E'] = ting_result.E0
     row_dict['ting_tc'] = ting_result.tc
     row_dict['ting_betaE'] = ting_result.betaE
     row_dict['ting_f0'] = ting_result.F0
@@ -58,6 +58,9 @@ def unpack_ting_result(row_dict, ting_result):
     row_dict['ting_Rsquared'] = ting_result.Rsquared
     row_dict['ting_chisq'] = ting_result.chisq
     row_dict['ting_redchi'] = ting_result.redchi
+    row_dict['ting_v0t_app_vel'] = ting_result.v0t
+    row_dict['ting_v0r_ret_vel'] = ting_result.v0r
+
     return row_dict
 
 def unpack_piezochar_result(row_dict, piezochar_result):
