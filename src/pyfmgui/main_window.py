@@ -1,5 +1,6 @@
 # Import glob to find files in os
 import glob
+import os 
 # Import GUI framework
 import PyQt5
 from pyqtgraph.Qt import QtGui, QtCore, QtWidgets
@@ -111,6 +112,9 @@ class MainWindow(QtWidgets.QMainWindow):
 		self.session.pbar_widget = ProgressDialog()
 		# self.add_subwindow(self.session.pbar_widget, 'Progress Bar')
 		# self.session.pbar_widget.setVisible(False)
+		#this is for drag and drop 
+		self.setAcceptDrops(True)
+
 
 	def add_subwindow(self, widget, tittle):
 		sub = QtWidgets.QMdiSubWindow()
@@ -213,6 +217,8 @@ class MainWindow(QtWidgets.QMainWindow):
 				"""
 			)
 			if fname != "" and fname is not None:
+                
+				print(fname)
 				self.load_files([fname])
 		elif q.text() == "Load Folder":
 			dirname = QtWidgets.QFileDialog.getExistingDirectory(
@@ -294,3 +300,20 @@ class MainWindow(QtWidgets.QMainWindow):
 			self.session.vdrag_widget.clear()
 		if self.session.microrheo_widget:
 			self.session.microrheo_widget.clear()
+    
+	def dragEnterEvent(self, event):
+		if event.mimeData().hasUrls():
+			event.accept()
+		else:
+			event.ignore()
+ 
+	def dropEvent(self, event):
+		path = event.mimeData().urls()[0].path()[:]
+		print(path,type(path))
+		if os.path.isdir(path):
+			valid_files = self.getFileList(path)
+			if valid_files != []:self.load_files(valid_files)
+
+         
+		else:self.load_files([path])
+
