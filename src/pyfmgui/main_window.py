@@ -308,12 +308,22 @@ class MainWindow(QtWidgets.QMainWindow):
 			event.ignore()
  
 	def dropEvent(self, event):
-		path = event.mimeData().urls()[0].path()[:]
-		print(path,type(path))
-		if os.path.isdir(path):
-			valid_files = self.getFileList(path)
-			if valid_files != []:self.load_files(valid_files)
+		paths_url = event.mimeData().urls();
+		paths =[p.path() for p in paths_url]
+		valid_files = []
+		for path in paths:
+			if os.path.isdir(path):
+				valid_files= self.getFileList(path)
+			else:valid_files.append(path)
 
-         
-		else:self.load_files([path])
+		if valid_files != []:self.load_files(valid_files)
 
+
+	def keyPressEvent(self, event):
+		if event.key() == QtCore.Qt.Key_Delete:
+			selected_item = self.session.data_viewer_widget.tree.currentItem()
+			key = selected_item.text(0)
+
+			if selected_item:
+				(selected_item.parent() or self.session.data_viewer_widget.tree.invisibleRootItem()).removeChild(selected_item)
+				self.session.loaded_files.pop(key)

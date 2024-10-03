@@ -63,6 +63,7 @@ class DataViewerWidget(QtWidgets.QWidget):
         # generate an adjustabled color bar, initially spanning -1 to 1:
         self.bar = pg.ColorBarItem(
             interactive=False, values=(0,0), width=25)#, cmap=colorMap) 
+        self.bar.setColorMap(colorMap)
         # link color bar and color map to correlogram, and show it in plotItem:
         self.bar.setImageItem(self.correlogram, insert_in=self.plotItem)
 
@@ -161,7 +162,6 @@ class DataViewerWidget(QtWidgets.QWidget):
             return
 
         self.l.clear()
-
         self.session.current_file = self.session.loaded_files[file_id]
 
         if self.session.current_file.isFV:
@@ -189,6 +189,10 @@ class DataViewerWidget(QtWidgets.QWidget):
                 rows, cols = shape[0], shape[1]
                 curve_coords = np.arange(cols*rows).reshape((cols, rows))
             self.correlogram.setImage(img * 1e6)
+            colorMap = pg.colormap.get('afmhot', source='matplotlib', skipCache=True)     # choose perceptually uniform, diverging color map
+
+            self.correlogram.setColorMap(colorMap)
+
             self.bar.setLevels((img.min() * 1e6, img.max() * 1e6))
             self.plotItem.setXRange(0, cols)
             self.plotItem.setYRange(0, rows)
