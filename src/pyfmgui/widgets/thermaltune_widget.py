@@ -7,9 +7,14 @@ from pyqtgraph.Qt import QtGui, QtWidgets, QtCore
 import pyqtgraph as pg
 from pyqtgraph.parametertree import Parameter, ParameterTree
 
-from pyfmreader import loadfile
-from pyfmrheo.models.calibration import Stark_Chi_force_constant
-from pyfmrheo.models.sho import SHOModel
+
+# from pyfmreader import loadfile
+# from pyfmrheo.models.calibration import Stark_Chi_force_constant
+# from pyfmrheo.models.sho import SHOModel
+# from source code
+from src.pyfmreader_dynamo.src.pyfmreader import loadfile
+from src.pyfmrheo_dynamo.src.pyfmrheo.models.calibration import Stark_Chi_force_constant
+from src.pyfmrheo_dynamo.src.pyfmrheo.models.sho import SHOModel
 
 import pyfmgui.const as cts
 

@@ -4,7 +4,11 @@ logger = logging.getLogger()
 # Import for multiprocessing
 import concurrent.futures
 # Get loadfile function from PyFMReader
-from pyfmreader import loadfile
+## if you want to load the loadfile from the github instead..... you need to pip install pyfmreader
+# from pyfmreader import loadfile
+
+## this will load the modules based on what you have programmed in sour e
+from src.pyfmreader_dynamo.src.pyfmreader.pyfmreader import loadfile
 # Get constants
 import pyfmgui.const as const
 

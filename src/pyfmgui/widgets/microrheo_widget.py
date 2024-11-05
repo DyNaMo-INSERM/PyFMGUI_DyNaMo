@@ -10,12 +10,16 @@ import logging
 logger = logging.getLogger()
 
 import pyfmgui.const as cts
-from pyfmrheo.utils.signal_processing import *
+
 from pyfmgui.threading import Worker
 from pyfmgui.compute import compute
 from pyfmgui.widgets.get_params import get_params
 
-from pyfmrheo.utils.force_curves import get_poc_RoV_method, get_poc_regulaFalsi_method
+# from pyfmrheo.utils.force_curves import get_poc_RoV_method, get_poc_regulaFalsi_method
+# from pyfmrheo.utils.signal_processing import *
+# For in line calling for functions
+from src.pyfmrheo_dynamo.src.pyfmrheo.utils.force_curves import get_poc_RoV_method, get_poc_regulaFalsi_method
+from src.pyfmrheo_dynamo.src.pyfmrheo.utils.signal_processing import *
 
 class MicrorheoWidget(QtWidgets.QWidget):
     def __init__(self, session, parent=None):

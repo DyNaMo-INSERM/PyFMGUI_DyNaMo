@@ -11,7 +11,10 @@ from pyfmgui.threading import Worker
 from pyfmgui.compute import compute
 from pyfmgui.widgets.get_params import get_params
 
-from pyfmrheo.utils.force_curves import get_poc_RoV_method, get_poc_regulaFalsi_method, correct_tilt, correct_offset
+# from pyfmrheo.utils.force_curves import get_poc_RoV_method, get_poc_regulaFalsi_method, correct_tilt, correct_offset
+
+# For in line calling for functions
+from src.pyfmrheo_dynamo.src.pyfmrheo.utils.force_curves import get_poc_RoV_method, get_poc_regulaFalsi_method, correct_tilt, correct_offset
 
 class HertzFitWidget(QtWidgets.QWidget):
     def __init__(self, session, parent=None):
