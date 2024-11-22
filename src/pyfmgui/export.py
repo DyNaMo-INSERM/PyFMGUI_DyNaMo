@@ -3,6 +3,7 @@ import os
 import pandas as pd
 import numpy as np
 import traceback
+import json
 
 # Import for multiprocessing
 import concurrent.futures
@@ -95,12 +96,22 @@ def get_file_results(result_type, file_metadata_and_results):
     file_path = filemetadata['file_path']
     k = filemetadata['spring_const_Nbym']
     defl_sens = filemetadata['defl_sens_nmbyV']
+    defl_sens = filemetadata['defl_sens_nmbyV']
+    num_x_px = int(filemetadata.get("num_x_pixels") )
+    num_y_px = int(filemetadata.get("num_y_pixels"))
+    #px size in nm (need to verify) 
+    scan_x_size = float(filemetadata.get("scan_size_x") )
+    scan_y_size = float(filemetadata.get("scan_size_y") )
+    scan_size_nm = json.dumps([scan_x_size,scan_y_size])
+    map_size = json.dumps([num_x_px,num_y_px])
+
     file_results = []
     for curve_result in file_result:
         curve_indx = curve_result[0]
         row_dict = {
             'file_path': file_path, 'file_id': file_id, 
-            'curve_idx': curve_indx, 'kcanti': k, 'defl_sens': defl_sens
+            'curve_idx': curve_indx, 'kcanti': k, 'defl_sens': defl_sens,
+            'scan_size_x_y_nm': scan_size_nm,'map_size_x_y_pixels': map_size,
         }
         try:
             if result_type == 'hertz_results' and curve_result[1] is not None:
