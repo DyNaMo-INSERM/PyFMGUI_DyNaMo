@@ -65,3 +65,7 @@ python -m PyInstaller main.spec
 - Improve tree control for files (allow to load multiple directories at once and assign folder as group)
 - Allow to save analysis sessions and load them after
 - Improve error handling and logging
+
+## Acknowledgements
+This project has received funding by the H2020 European Union’s Horizon 2020 research and innovation program under the Marie Sklodowska-Curie (grant agreement No 812772) and from the European Research Council (ERC, grant agreement No 772257).
+
