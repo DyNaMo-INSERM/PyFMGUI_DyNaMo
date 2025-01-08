@@ -19,7 +19,7 @@ or write to us @ yogesh.saravanan@inserm.fr
 ## Run software
 A zip containing the frozen application can be found and downloaded here:
 
-https://doi.org/10.5281/zenodo.8301684
+[https://doi.org/10.5281/zenodo.8301684](https://zenodo.org/records/8342163)
 
 To run, extract the contents of the .zip and run the main.exe file.
 
