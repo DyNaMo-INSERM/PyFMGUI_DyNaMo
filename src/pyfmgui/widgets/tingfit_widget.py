@@ -154,6 +154,9 @@ class TingFitWidget(QtWidgets.QWidget):
                 shape = img.shape
                 rows, cols = shape[0], shape[1]
                 curve_coords = np.arange(cols*rows).reshape((cols, rows))
+                if self.current_file.filemetadata['file_type'] == "jpk-force-map":
+                    curve_coords = np.asarray([row[::(-1)**i] for i, row in enumerate(curve_coords)])
+                
                 curve_coords = np.rot90(np.fliplr(curve_coords))
             elif self.session.current_file.filemetadata['file_type'] in cts.nanoscope_file_extensions:
                 img = self.session.current_file.piezoimg
@@ -165,9 +168,6 @@ class TingFitWidget(QtWidgets.QWidget):
             rows, cols = shape[0], shape[1]
             self.plotItem.setXRange(0, cols)
             self.plotItem.setYRange(0, rows)
-            curve_coords = np.arange(cols*rows).reshape((cols, rows))
-            if self.current_file.filemetadata['file_type'] == "jpk-force-map":
-                curve_coords = np.asarray([row[::(-1)**i] for i, row in enumerate(curve_coords)])
             self.session.map_coords = curve_coords
         self.session.current_curve_index = 0
         self.ROI.setPos(0, 0)
