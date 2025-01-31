@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/PyFMGUI.iml" filepath="$PROJECT_DIR$/.idea/PyFMGUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PyFMReader_DyNaMo/.idea/PyFMReader_DyNaMo.iml" filepath="$PROJECT_DIR$/../PyFMReader_DyNaMo/.idea/PyFMReader_DyNaMo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PyFMRheo_DyNaMo/.idea/PyFMRheo_DyNaMo.iml" filepath="$PROJECT_DIR$/../PyFMRheo_DyNaMo/.idea/PyFMRheo_DyNaMo.iml" />
+    </modules>
+  </component>
+</project>
