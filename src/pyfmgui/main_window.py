@@ -308,8 +308,12 @@ class MainWindow(QtWidgets.QMainWindow):
 			event.ignore()
  
 	def dropEvent(self, event):
-		paths_url = event.mimeData().urls();
-		paths =[p.path() for p in paths_url]
+		# Convert paths to platform-independent format
+		paths_url = event.mimeData().urls()
+		paths = [os.path.normpath(p.toLocalFile()) for p in paths_url]
+
+		#paths_url = event.mimeData().urls();
+		#paths =[p.path() for p in paths_url]
 		valid_files = []
 		for path in paths:
 			if os.path.isdir(path):
