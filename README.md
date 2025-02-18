@@ -11,15 +11,17 @@ The following analysis routines are supported:
 - Viscous drag correction
 - Microrheology (DMA) analysis
 
-If you have any suggestions, comments or experience any issues. Please open an issue on this repository 
-https://github.com/jlopezalo/PyFMGUI/issues
+If you have any ideas, comments, or run into any issues, feel free to open an issue on this repository: 
 
-or write to us @ yogesh.saravanan@inserm.fr
+https://github.com/DyNaMo-INSERM/PyFMGUI_DyNaMo/issues.
+
+Alternatively, you can reach out to us at yogesh.saravanan@inserm.fr ou felix.rico@inserm.fr.
+We’re always happy to hear from you!
 
 ## Run software
 A zip containing the frozen application can be found and downloaded here:
 
-[https://doi.org/10.5281/zenodo.8301684](https://zenodo.org/records/8342163)
+https://zenodo.org/records/7658790
 
 To run, extract the contents of the .zip and run the main.exe file.
 
@@ -54,9 +56,9 @@ python src/main.py
 ```
 
 ## Generate executables
-If you wish to do any changes to the code and freeze them. You can use PyInstaller and run the main.spec file (Windows).
+If you wish to do any changes to the code and freeze them. You can use PyInstaller and compile an executable (OS/platform specific).
 ```
-python -m PyInstaller main.spec
+pyinstaller --onefile --name "name_your_executable" --windowed main.py
 ```
 
 ## To Do
