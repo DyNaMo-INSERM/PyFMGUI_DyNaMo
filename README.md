@@ -21,7 +21,7 @@ We’re always happy to hear from you!
 ## Run software
 A zip containing the frozen application can be found and downloaded here:
 
-https://zenodo.org/records/7658790
+https://zenodo.org/records/14889564
 
 To run, extract the contents of the .zip and run the main.exe file.
 
