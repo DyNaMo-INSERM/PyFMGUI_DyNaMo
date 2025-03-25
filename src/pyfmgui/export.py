@@ -35,6 +35,11 @@ def unpack_hertz_result(row_dict, hertz_result):
     row_dict['hertz_Rsquared'] = hertz_result.Rsquared
     row_dict['hertz_chisq'] = hertz_result.chisq
     row_dict['hertz_redchi'] = hertz_result.redchi
+    #this is to store the max indentation of a fitted force curve & sample height
+
+    row_dict['hertz_z_c'] = hertz_result.z_c
+    row_dict['hertz_max_ind'] = hertz_result.max_ind
+
     return row_dict
 
 def unpack_ting_result(row_dict, ting_result):

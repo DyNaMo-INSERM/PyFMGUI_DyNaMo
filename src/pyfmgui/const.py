@@ -260,15 +260,17 @@ class TingFitParams(pTypes.GroupParameter):
             self.param('Poly. Order').show(False)
             self.param('Ramp Speed').show(False)
 
+
 class CantileverParams(pTypes.GroupParameter):
     def __init__(self, **opts):
         pTypes.GroupParameter.__init__(self, **opts)
         self.addChildren([
-            {'name': 'Canti Id', 'type': 'list', 'limits': list(canti_list.keys())},
-            {'name': 'Canti Shape', 'type': 'list', 'limits': ['Rectangular', 'V Shape']},
-            {'name': 'Lenght', 'type': 'float', 'value': 0, 'units':'um'},
+            {'name': 'Canti Id', 'type': 'list', 'limits': list(canti_list.keys()), 'value': 'Custom'},
+            {'name': 'Canti Shape', 'type': 'list', 'limits': ['Rectangular', 'V Shape'], 'value': 'Rectangular'},
+            {'name': 'Length', 'type': 'float', 'value': 0, 'units':'um'},
             {'name': 'Width', 'type': 'float', 'value': 0, 'units':'um'},
-            {'name': 'Width Legs', 'type': 'float', 'value': 0, 'units':'um'}
+            {'name': 'Width Legs', 'type': 'float', 'value': 0, 'units':'um'},
+            {'name': 'nominal k', 'type': 'float', 'value': 0, 'units':'pN/nm'}
         ])
 
         self.cani_id = self.param('Canti Id')
@@ -278,10 +280,17 @@ class CantileverParams(pTypes.GroupParameter):
         
     def canti_id_changed(self):
         canti_data = canti_list.get(self.cani_id.value())
-        self.param('Canti Shape').setValue(canti_data['cantType'])
-        self.param('Lenght').setValue(canti_data['CantileverLength'])
-        self.param('Width').setValue(canti_data['CantileverWidth'])
-        self.param('Width Legs').setValue(canti_data['CantileverWidthLegs'])
+        if canti_data:
+            self.param('Canti Shape').setValue(canti_data['cantType'])
+            self.param('Length').setValue(canti_data['CantileverLength'])
+            self.param('Width').setValue(canti_data['CantileverWidth'])
+            self.param('Width Legs').setValue(canti_data['CantileverWidthLegs'])
+            self.param('nominal k').setValue(canti_data['kNominal'])
+        else:
+            print(f"Error: '{self.cani_id.value()}' not found in canti_list")
+            
+            
+  
 
 
 general_params = {'name': 'General Options', 'type': 'group', 'children': [
@@ -319,7 +328,7 @@ data_viewer_params = [plot_params]
 
 hertzfit_params = [general_params, AnalysisParams(mode='hertzfit', name='Analysis Params'), HertzFitParams(name='Hertz Fit Params')]
 
-#thermaltune_params = [ambient_params, CantileverParams(name='Cantilever Params'), sader_method_params]
+thermaltune_params = [ambient_params, CantileverParams(name='Cantilever Params'), sader_method_params]
 
 tingfit_params = [general_params, AnalysisParams(mode='tingfit', name='Analysis Params'), TingFitParams(name='Ting Fit Params')]
 

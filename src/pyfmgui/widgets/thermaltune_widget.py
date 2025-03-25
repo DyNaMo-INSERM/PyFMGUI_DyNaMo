@@ -214,7 +214,7 @@ class ThermalTuneWidget(QtWidgets.QWidget):
         canti_params = self.params.child('Cantilever Params')
         self.cantType = canti_params.child('Canti Shape').value()
         self.cantiWidth = canti_params.child('Width').value() / 1e6
-        self.cantiLen = canti_params.child('Lenght').value() / 1e6
+        self.cantiLen = canti_params.child('Length').value() / 1e6
         self.cantiWidthLegs = canti_params.child('Width Legs').value() / 1e6
         cal_params = self.params.child('Calibration Params')
         self.selectedCantId = cal_params.child('Cantilever Code').value()

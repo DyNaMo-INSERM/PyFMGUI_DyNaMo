@@ -130,7 +130,7 @@ class DataViewerWidget(QtWidgets.QWidget):
             x_units = 'm'
             if xkey == "time":
                 x = x + t0
-                t0 = x[-1]
+                t0 = x[-1] if x.size > 0 else 0
                 x_units = 's'
             y = getattr(segment, ykey)
             self.p1.plot(x, y, pen=(i,n_segments), name=f"{segment.segment_type} {seg_id}")
